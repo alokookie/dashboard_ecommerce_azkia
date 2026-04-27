@@ -37,12 +37,18 @@ st.metric("Rata-rata", f"{avg_items:.2f}")
 # tren tranksaksi bulanan 
 st.subheader("Tren Transaksi Bulanan")
 
-fig, ax = plt.subplots(figsize=(10, 5))
+# pastikan data aman dulu
+avg_monthly = avg_monthly.sort_values('month')
 
-ax.plot(avg_monthly['month'], avg_monthly['price'], marker='o')
+fig, ax = plt.subplots(figsize=(8, 3))
+
+ax.plot(
+    avg_monthly['month'].values,
+    avg_monthly['price'].values
+)
 
 ax.set_xlabel("Month")
 ax.set_ylabel("Price")
 ax.tick_params(axis='x', rotation=45)
 
-st.pyplot(fig)
+st.pyplot(fig, clear_figure=True)
