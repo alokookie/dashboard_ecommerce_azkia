@@ -36,8 +36,6 @@ st.metric("Rata-rata", f"{avg_items:.2f}")
 
 # tren tranksaksi bulanan 
 st.subheader("Tren Transaksi Bulanan")
-
-# pastikan data aman dulu
 avg_monthly = avg_monthly.sort_values('month')
 
 fig, ax = plt.subplots(figsize=(8, 3))
